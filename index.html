@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Prompt Optimizer — Convert casual input into structured professional AI prompts.">
+  <title>AI Prompt Optimizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link" data-i18n="skipToContent">Skip to main content</a>
+
+  <header class="header">
+    <div class="header__inner">
+      <div class="brand">
+        <span class="brand__icon" aria-hidden="true">✨</span>
+        <div class="brand__text">
+          <h1 class="brand__title" data-i18n="appTitle">AI Prompt Optimizer</h1>
+          <p class="brand__tagline" data-i18n="appTagline">Transform casual ideas into professional AI prompts</p>
+        </div>
+      </div>
+
+      <div class="header__controls">
+        <label class="control-label" for="lang-select" data-i18n="languageLabel">Language</label>
+        <select id="lang-select" class="select" aria-label="Select interface language">
+          <option value="en">🇺🇸 English</option>
+          <option value="ar">🇸🇦 العربية</option>
+          <option value="it">🇮🇹 Italiano</option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="zh">🇨🇳 中文</option>
+          <option value="ja">🇯🇵 日本語</option>
+          <option value="ko">🇰🇷 한국어</option>
+        </select>
+
+        <button
+          id="theme-toggle"
+          class="btn btn--icon"
+          type="button"
+          aria-label="Toggle dark mode"
+          aria-pressed="false"
+        >
+          <span class="theme-icon theme-icon--light" aria-hidden="true">☀️</span>
+          <span class="theme-icon theme-icon--dark" aria-hidden="true">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="main">
+    <section class="panel panel--input" aria-labelledby="input-heading">
+      <div class="panel__header">
+        <h2 id="input-heading" class="panel__title" data-i18n="inputTitle">Your Input</h2>
+        <span id="detected-lang" class="badge badge--hidden" aria-live="polite"></span>
+      </div>
+
+      <label class="sr-only" for="user-input" data-i18n="inputLabel">Enter your casual prompt or idea</label>
+      <textarea
+        id="user-input"
+        class="textarea"
+        rows="8"
+        data-i18n-placeholder="inputPlaceholder"
+        placeholder="Describe what you want the AI to do — in any language..."
+        spellcheck="true"
+      ></textarea>
+
+      <div class="panel__actions">
+        <button id="generate-btn" class="btn btn--primary" type="button">
+          <span class="btn__text" data-i18n="generateBtn">Generate Prompt</span>
+          <span class="btn__loader" aria-hidden="true"></span>
+        </button>
+        <button id="clear-btn" class="btn btn--secondary" type="button" data-i18n="clearBtn">Clear</button>
+      </div>
+    </section>
+
+    <section class="panel panel--output" aria-labelledby="output-heading">
+      <div class="panel__header">
+        <h2 id="output-heading" class="panel__title" data-i18n="outputTitle">Optimized Prompt</h2>
+        <button
+          id="copy-btn"
+          class="btn btn--ghost"
+          type="button"
+          disabled
+          aria-label="Copy optimized prompt to clipboard"
+          data-i18n="copyBtn"
+        >Copy</button>
+      </div>
+
+      <div id="output-container" class="output" role="region" aria-live="polite" aria-busy="false">
+        <div id="output-empty" class="output__state output__state--empty">
+          <span class="output__icon" aria-hidden="true">📝</span>
+          <p data-i18n="emptyState">Your structured prompt will appear here after generation.</p>
+        </div>
+
+        <div id="output-loading" class="output__state output__state--loading" hidden>
+          <div class="spinner" aria-hidden="true"></div>
+          <p data-i18n="loadingState">Optimizing your prompt...</p>
+        </div>
+
+        <div id="output-error" class="output__state output__state--error" hidden>
+          <span class="output__icon" aria-hidden="true">⚠️</span>
+          <p id="error-message" data-i18n="errorState">Something went wrong. Please try again.</p>
+        </div>
+
+        <pre id="output-result" class="output__result" hidden></pre>
+      </div>
+    </section>
+  </main>
+
+ <footer class="footer">
+  <p>Created by Karim Alhanjouri</p>
+
+  <div class="footer-links">
+    <a href="https://github.com/KareemAlhanjouri" target="_blank">GitHub</a>
+    <a href="mailto:kareem.alhanjouri3367@gmail.com">Email</a>
+  </div>
+</footer>
+
+    
+
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
